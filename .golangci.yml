@@ -1,4 +1,10 @@
 linters-settings:
+  depguard:
+    rules:
+      main:
+        list-mode: lax
+        files: ["$all"]
+        allow: ["$std"]
   dupl:
     threshold: 100
   funlen:
@@ -26,11 +32,8 @@ linters-settings:
     min-complexity: 25
   goimports:
     local-prefixes: github.com/golangci/golangci-lint
-  gomnd:
-    settings:
-      mnd:
-        # don't include the "operation" and "assign"
-        checks: argument,case,condition,return
+  mnd:
+    checks: [argument, case, condition, return]
   govet:
     check-shadowing: true
     settings:
@@ -60,11 +63,10 @@ linters:
   disable-all: true
   enable:
     - bodyclose
-    - deadcode
     - depguard
     - dogsled
     - errcheck
-    - exportloopref
+    - copyloopvar
     - exhaustive
     - funlen
     - gochecknoinits
@@ -73,7 +75,7 @@ linters:
     - gocyclo
     - gofmt
     - goimports
-    - gomnd
+    - mnd
     - goprintffuncname
     #- gosec
     - gosimple
@@ -87,13 +89,11 @@ linters:
     - revive
     - rowserrcheck
     - staticcheck
-    - structcheck
     - stylecheck
     - typecheck
     - unconvert
     - unparam
     - unused
-    - varcheck
     - whitespace
 
   # don't enable:
@@ -118,7 +118,7 @@ issues:
   exclude-rules:
     - path: _test\.go
       linters:
-        - gomnd
+        - mnd
 
     # https://github.com/go-critic/go-critic/issues/926
     - linters:
