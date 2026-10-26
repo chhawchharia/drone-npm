@@ -1,6 +1,6 @@
 module github.com/drone-plugins/drone-npm
 
-go 1.22
+go 1.19
 
 toolchain go1.26.10
 
