@@ -192,7 +192,7 @@ func (p *Plugin) writeNpmrc() error {
 
 	logrus.WithField("path", npmrcPath).Info("Writing npmrc")
 
-	return os.WriteFile(npmrcPath, []byte(f(&p.settings)), 0644) //nolint:mnd
+	return os.WriteFile(npmrcPath, []byte(f(&p.settings)), 0644) //nolint:gomnd
 }
 
 // / shouldPublishPackage determines if the package should be published
