@@ -7,7 +7,7 @@ LABEL maintainer="Drone.IO Community <drone-dev@googlegroups.com>" \
 
 ENV GODEBUG=netdns=go
 
-RUN apk add --no-cache 'ca-certificates>=20261020-r0' 'ca-certificates-bundle>=20261020-r0' git mailcap 'nodejs~22.23.4' npm
+RUN apk add --no-cache 'ca-certificates>=20261020-r0' 'ca-certificates-bundle>=20261020-r0' git mailcap 'nodejs>=22.23.4' npm
 
 ADD release/linux/amd64/drone-npm /bin/
 ENTRYPOINT [ "/bin/drone-npm" ]
